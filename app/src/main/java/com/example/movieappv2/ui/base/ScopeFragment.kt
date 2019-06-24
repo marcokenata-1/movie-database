@@ -13,11 +13,11 @@ abstract class ScopeFragment : Fragment() , CoroutineScope {
     private lateinit var job : Job
 
     override val coroutineContext: CoroutineContext
-        get() = SupervisorJob() + Dispatchers.Main
+        get() = Job() + Dispatchers.Main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        job = SupervisorJob()
+        job = Job()
     }
 
     override fun onDestroy() {

@@ -1,12 +1,14 @@
 package com.example.movieappv2.ui.Popular
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.movieappv2.R
+import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.base.ScopeFragment
 import kotlinx.android.synthetic.main.popular_fragment.*
 import org.kodein.di.KodeinAware
@@ -20,6 +22,8 @@ class Popular : ScopeFragment(), KodeinAware {
     private val viewModelFactory: PopularViewModelFactory by instance()
 
     private lateinit var viewModel: PopularViewModel
+
+    var adapter: FragmentAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,17 +39,12 @@ class Popular : ScopeFragment(), KodeinAware {
         viewModel.bindUI()
 
         viewModel.titleMovie.observe(this, Observer { value ->
-            updateText(value.results.toString())
+            Log.d("VALUE",value.totalPages.toString())
+            adapter = FragmentAdapter(this@Popular.getContext(),value.results)
+            gvPopularFragment.adapter = adapter
         })
 
 
-    }
-
-    //
-
-
-    fun updateText(text: String) {
-        tv_popular.text = text
     }
 
 }
