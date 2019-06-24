@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import com.example.movieappv2.R
 import com.example.movieappv2.ui.Popular.PopularViewModel
 import com.example.movieappv2.ui.Popular.PopularViewModelFactory
+import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.base.ScopeFragment
 import kotlinx.android.synthetic.main.top_rated_fragment.*
 import kotlinx.coroutines.launch
@@ -27,6 +28,8 @@ class TopRated : ScopeFragment(), KodeinAware {
 
     private lateinit var viewModel: TopRatedViewModel
 
+    var adapter: FragmentAdapter? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,7 +40,12 @@ class TopRated : ScopeFragment(), KodeinAware {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(TopRatedViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel.bindUI()
+
+        viewModel.titleMovieTopRated.observe(this, Observer { value ->
+            adapter = FragmentAdapter(this@TopRated.context, value.results)
+            gvTopRatedFragment.adapter = adapter
+        })
 
 //        bindUI()
     }

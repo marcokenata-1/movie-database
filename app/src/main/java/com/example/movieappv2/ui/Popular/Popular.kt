@@ -1,7 +1,6 @@
 package com.example.movieappv2.ui.Popular
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,9 +38,9 @@ class Popular : ScopeFragment(), KodeinAware {
         viewModel.bindUI()
 
         viewModel.titleMovie.observe(this, Observer { value ->
-            Log.d("VALUE",value.totalPages.toString())
-            adapter = FragmentAdapter(this@Popular.getContext(),value.results)
-            gvPopularFragment.adapter = adapter
+//            Log.d("VALUE",value.totalPages.toString())
+            adapter = FragmentAdapter(this@Popular.context,value.results)
+            gvTopRatedFragment.adapter = adapter
         })
 
 

@@ -7,7 +7,7 @@
         tools:context=".ui.TopRated.TopRated">
 
     <GridView
-            android:id="@+id/gvPopularFragment"
+            android:id="@+id/gvTopRatedFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="2"/>

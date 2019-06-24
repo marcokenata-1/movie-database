@@ -19,7 +19,7 @@ class MovieRepositoryImpl(
     override suspend fun fetchTopRatedMoviesRepo(page: Int): LiveData<DataResponse> {
         return withContext(Dispatchers.IO){
             movieDataSource.fetchTopRatedMovies(page)
-            return@withContext movieDataSource.popularMovies
+            return@withContext movieDataSource.topRatedMovies
         }
     }
 }
