@@ -1,0 +1,60 @@
+package com.example.movieappv2.data.network
+
+import com.example.movieappv2.data.network.response.DataResponse
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import kotlinx.coroutines.Deferred
+import okhttp3.Interceptor
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Query
+
+const val API_KEY = "ddeb2407d89eb56ea96d59636397646a"
+
+interface TheMovieDBService {
+
+    @GET("popular?")
+    fun getPopular(@Query("language") language : String = "en-US",
+                   @Query("page") page : Int,
+                   @Query("region") region : String = "B1") : Deferred<DataResponse>
+
+    @GET("top_rated?")
+    fun getTopRated(@Query("language") language : String = "en-US",
+                    @Query("page") page : Int,
+                    @Query("region") region : String = "B1") : Deferred<DataResponse>
+
+    companion object {
+        operator fun invoke( connectivityInterceptor: ConnectivityInterceptor): TheMovieDBService {
+            val requestInterceptor = Interceptor {chain ->
+
+                val url = chain.request()
+                    .url()
+                    .newBuilder()
+                    .addQueryParameter("api_key", API_KEY)
+                    .build()
+
+                val request = chain.request()
+                    .newBuilder()
+                    .url(url)
+                    .build()
+
+                return@Interceptor chain.proceed(request)
+
+            }
+
+            val okHttpClient = OkHttpClient.Builder()
+                .addInterceptor(requestInterceptor)
+                .addInterceptor(connectivityInterceptor)
+                .build()
+
+            return Retrofit.Builder()
+                .client(okHttpClient)
+                .baseUrl("https://api.themoviedb.org/3/movie/")
+                .addCallAdapterFactory(CoroutineCallAdapterFactory())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(TheMovieDBService::class.java)
+        }
+    }
+}
