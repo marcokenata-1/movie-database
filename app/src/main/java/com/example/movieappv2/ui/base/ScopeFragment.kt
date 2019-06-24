@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
 
 abstract class ScopeFragment : Fragment() , CoroutineScope {
@@ -12,11 +13,11 @@ abstract class ScopeFragment : Fragment() , CoroutineScope {
     private lateinit var job : Job
 
     override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Main
+        get() = SupervisorJob() + Dispatchers.Main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        job = Job()
+        job = SupervisorJob()
     }
 
     override fun onDestroy() {

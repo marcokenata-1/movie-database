@@ -5,6 +5,7 @@ import com.example.movieappv2.data.network.*
 import com.example.movieappv2.data.repository.MovieRepository
 import com.example.movieappv2.data.repository.MovieRepositoryImpl
 import com.example.movieappv2.ui.Popular.PopularViewModelFactory
+import com.example.movieappv2.ui.TopRated.TopRatedViewModelFactory
 import com.jakewharton.threetenabp.AndroidThreeTen
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -24,7 +25,7 @@ class MyApplication: Application(), KodeinAware {
         bind<MovieDataSource>() with singleton { MovieDataSourceImpl(instance()) }
         bind<MovieRepository>() with singleton { MovieRepositoryImpl(instance()) }
         bind() from provider { PopularViewModelFactory(instance()) }
-//        bind() from provider { TopRatedViewModel(instance()) }
+        bind() from provider { TopRatedViewModelFactory(instance()) }
     }
 
 

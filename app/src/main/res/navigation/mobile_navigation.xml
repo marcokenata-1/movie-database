@@ -5,8 +5,8 @@
             app:startDestination="@+id/popularFragment">
 
     <fragment android:id="@+id/popularFragment"
-              android:label="popular_fragment" tools:layout="@layout/popular_fragment"
+              android:label="Popular" tools:layout="@layout/popular_fragment"
               android:name="com.example.movieappv2.ui.Popular.Popular"/>
     <fragment android:id="@+id/topRatedFragment" android:name="com.example.movieappv2.ui.TopRated.TopRated"
-              android:label="top_rated_fragment" tools:layout="@layout/top_rated_fragment"/>
+              android:label="Top Rated" tools:layout="@layout/top_rated_fragment"/>
 </navigation>

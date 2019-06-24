@@ -1,26 +1,29 @@
 package com.example.movieappv2.ui.Popular
 
-import android.os.Bundle
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.movieappv2.data.network.response.DataResponse
 import com.example.movieappv2.data.repository.MovieRepository
-import com.example.movieappv2.internal.lazyDeferred
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-public class PopularViewModel(
-private val movieRepository: MovieRepository
+class PopularViewModel(
+    private val movieRepository: MovieRepository
 ) : ViewModel(), CoroutineScope {
 
-    private lateinit var job: Job
-
     override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.Main
+        get() = SupervisorJob() + Dispatchers.Main
 
-    val moviePopular by lazyDeferred {
-        movieRepository.fetchPopularMoviesRepo(1)
+    override fun onCleared() {
+        super.onCleared()
+        coroutineContext.cancel()
     }
 
+    val titleMovie = MutableLiveData<DataResponse>()
+
+
+    fun bindUI() = launch {
+        titleMovie.postValue(movieRepository.fetchPopularMoviesRepo(1).value)
+    }
 
 }

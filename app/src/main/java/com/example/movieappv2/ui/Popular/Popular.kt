@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.movieappv2.R
 import com.example.movieappv2.ui.base.ScopeFragment
 import kotlinx.android.synthetic.main.popular_fragment.*
-import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
@@ -18,7 +17,7 @@ class Popular : ScopeFragment(), KodeinAware {
 
     override val kodein by closestKodein()
 
-    private val viewModelFactory : PopularViewModelFactory by instance()
+    private val viewModelFactory: PopularViewModelFactory by instance()
 
     private lateinit var viewModel: PopularViewModel
 
@@ -31,22 +30,21 @@ class Popular : ScopeFragment(), KodeinAware {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this,viewModelFactory).get(PopularViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PopularViewModel::class.java)
 
-        bindUI()
-    }
+        viewModel.bindUI()
 
-    fun bindUI() = launch {
-        val movie = viewModel.moviePopular.await()
-
-        movie.observe(this@Popular, Observer {
-            if (it == null) return@Observer
-
-            updateText(it.toString())
+        viewModel.titleMovie.observe(this, Observer { value ->
+            updateText(value.results.toString())
         })
+
+
     }
 
-    fun updateText(text : String){
+    //
+
+
+    fun updateText(text: String) {
         tv_popular.text = text
     }
 
