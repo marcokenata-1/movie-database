@@ -5,11 +5,12 @@ import android.net.ConnectivityManager
 import com.example.movieappv2.internal.NoConnectivityException
 import okhttp3.Interceptor
 import okhttp3.Response
+import javax.inject.Inject
 
-class ConnectivityInterceptorImpl(context: Context) : ConnectivityInterceptor {
+class ConnectivityInterceptorImpl @Inject constructor(context: Context) : ConnectivityInterceptor {
     private val appContext = context.applicationContext
 
-
+    @Inject
     override fun intercept(chain: Interceptor.Chain): Response {
         if (!isOnline()){
             throw NoConnectivityException()

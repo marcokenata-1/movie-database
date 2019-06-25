@@ -2,6 +2,7 @@ package com.example.movieappv2.data.network
 
 import com.example.movieappv2.data.network.response.DataResponse
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import dagger.Provides
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -9,6 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import javax.inject.Inject
 
 const val API_KEY = "ddeb2407d89eb56ea96d59636397646a"
 
@@ -25,7 +27,7 @@ interface TheMovieDBService {
                     @Query("region") region : String = "B1") : Deferred<DataResponse>
 
     companion object {
-        operator fun invoke( connectivityInterceptor: ConnectivityInterceptor): TheMovieDBService {
+        operator fun invoke ( connectivityInterceptor: ConnectivityInterceptor): TheMovieDBService {
             val requestInterceptor = Interceptor {chain ->
 
                 val url = chain.request()

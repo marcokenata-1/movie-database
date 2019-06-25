@@ -5,9 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.movieappv2.data.network.response.DataResponse
 import com.example.movieappv2.internal.NoConnectivityException
+import javax.inject.Inject
 
 
-class MovieDataSourceImpl(private val theMovieDBService: TheMovieDBService) : MovieDataSource {
+class MovieDataSourceImpl @Inject constructor(private val theMovieDBService: TheMovieDBService) : MovieDataSource {
 
     private val _popularMovies = MutableLiveData<DataResponse>()
     override val popularMovies: LiveData<DataResponse>

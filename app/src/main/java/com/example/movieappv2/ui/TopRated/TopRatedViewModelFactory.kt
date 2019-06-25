@@ -3,13 +3,16 @@ package com.example.movieappv2.ui.TopRated
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieappv2.data.repository.MovieRepository
-import com.example.movieappv2.ui.Popular.PopularViewModel
+import dagger.Module
+import dagger.Provides
+import javax.inject.Inject
 
-class TopRatedViewModelFactory(
+@Module
+class TopRatedViewModelFactory @Inject constructor(
     private val movieRepository: MovieRepository
-) : ViewModelProvider.NewInstanceFactory() {
+) : ViewModelProvider.Factory {
 
-
+    @Provides
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return TopRatedViewModel(movieRepository) as T

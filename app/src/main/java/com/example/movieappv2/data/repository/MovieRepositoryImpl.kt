@@ -5,8 +5,11 @@ import com.example.movieappv2.data.network.MovieDataSource
 import com.example.movieappv2.data.network.response.DataResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class MovieRepositoryImpl(
+@Singleton
+class MovieRepositoryImpl @Inject constructor(
     private val movieDataSource: MovieDataSource
 ) : MovieRepository {
     override suspend fun fetchPopularMoviesRepo(page: Int): LiveData<DataResponse> {
