@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import com.example.forcastmvvm.internal.glide.GlideApp
 import com.example.movieappv2.R
 import com.example.movieappv2.data.network.response.Result
+import com.example.movieappv2.internal.glide.GlideApp
 import com.example.movieappv2.ui.MovieDetails
 import kotlinx.android.synthetic.main.movie_ticket.view.*
 
@@ -30,6 +30,8 @@ class FragmentAdapter : BaseAdapter {
         var url = "https://image.tmdb.org/t/p/w500" + movie.posterPath
 
         movieView.tvMovieName.text = movie.originalTitle
+
+        movieView.tvGenreName.text = genreMatcher(movie.genreIds)
 
         GlideApp.with(context!!)
             .load(url)
@@ -62,4 +64,42 @@ class FragmentAdapter : BaseAdapter {
     override fun getCount(): Int {
         return listOfMovies.size
     }
+
+
+    fun genreDatabase() : Map<Int, String> {
+        var map = HashMap<Int,String>()
+        map.put(28, "Action")
+        map.put(12, "Adventure")
+        map.put(16, "Animation")
+        map.put(35, "Comedy")
+        map.put(80, "Crime")
+        map.put(99, "Documentary")
+        map.put(18, "Drama")
+        map.put(10751, "Family")
+        map.put(14, "Fantasy")
+        map.put(36, "History")
+        map.put(27,"Horror")
+        map.put(10402, "Music")
+        map.put(9648, "Mystery")
+        map.put(10749, "Romance")
+        map.put(878, "Science Fiction")
+        map.put(10770,"TV Movie")
+        map.put(53, "Thriller")
+        map.put(10752, "War")
+        map.put(37, "Western")
+
+        return map
+    }
+
+    fun genreMatcher(array : ArrayList<Int>) : String{
+        var builder = ""
+        for (x in array){
+            if (genreDatabase().containsKey(x)){
+                builder += genreDatabase().get(x)+", "
+            }
+        }
+        return builder.substring(0,builder.length-2)
+    }
+
+
 }

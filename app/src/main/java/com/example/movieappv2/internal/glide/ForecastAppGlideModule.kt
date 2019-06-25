@@ -1,4 +1,4 @@
-package com.example.forcastmvvm.internal.glide
+package com.example.movieappv2.internal.glide
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

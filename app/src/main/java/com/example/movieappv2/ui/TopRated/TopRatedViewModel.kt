@@ -8,12 +8,13 @@ import com.example.movieappv2.internal.lazyDeferred
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-public class TopRatedViewModel(
+class TopRatedViewModel(
     private val movieRepository: MovieRepository
 ) : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext
         get() = SupervisorJob() + Dispatchers.Main
+
 
     override fun onCleared() {
         super.onCleared()
