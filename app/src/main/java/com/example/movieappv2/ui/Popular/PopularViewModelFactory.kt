@@ -12,7 +12,6 @@ class PopularViewModelFactory @Inject constructor(
     private val movieRepository: MovieRepository
 ) : ViewModelProvider.Factory {
 
-//    @Provides
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return PopularViewModel(movieRepository) as T

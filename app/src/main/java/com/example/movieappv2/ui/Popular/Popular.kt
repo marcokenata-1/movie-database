@@ -13,12 +13,14 @@ import kotlinx.android.synthetic.main.popular_fragment.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
+import javax.inject.Inject
 
 class Popular : ScopeFragment() {
 //
 //    override val kodein by closestKodein()
 //
-//    private val viewModelFactory: PopularViewModelFactory by instance()
+    @Inject
+    internal lateinit var viewModelFactory: PopularViewModelFactory
 
     private lateinit var viewModel: PopularViewModel
 
@@ -33,7 +35,7 @@ class Popular : ScopeFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(PopularViewModel::class.java)
+        viewModel = ViewModelProviders.of(this,viewModelFactory).get(PopularViewModel::class.java)
 
         viewModel.bindUI()
 

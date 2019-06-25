@@ -18,13 +18,15 @@ import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
+import javax.inject.Inject
 
 class TopRated : ScopeFragment() {
 
 
 //    override val kodein by closestKodein()
 //
-//    private val viewModelFactory : TopRatedViewModelFactory by instance()
+    @Inject
+    internal lateinit var viewModelFactory : TopRatedViewModelFactory
 
     private lateinit var viewModel: TopRatedViewModel
 
