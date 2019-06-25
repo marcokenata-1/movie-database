@@ -5,6 +5,8 @@ import android.app.Application
 import com.example.movieappv2.data.network.*
 import com.example.movieappv2.data.repository.MovieRepository
 import com.example.movieappv2.data.repository.MovieRepositoryImpl
+import com.example.movieappv2.di.AppComponent
+import com.example.movieappv2.di.DaggerAppComponent
 import com.example.movieappv2.ui.Popular.PopularViewModelFactory
 import com.example.movieappv2.ui.TopRated.TopRatedViewModelFactory
 import com.jakewharton.threetenabp.AndroidThreeTen

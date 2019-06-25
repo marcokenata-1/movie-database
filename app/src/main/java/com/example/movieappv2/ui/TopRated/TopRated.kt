@@ -19,12 +19,12 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
-class TopRated : ScopeFragment(), KodeinAware {
+class TopRated : ScopeFragment() {
 
 
-    override val kodein by closestKodein()
-
-    private val viewModelFactory : TopRatedViewModelFactory by instance()
+//    override val kodein by closestKodein()
+//
+//    private val viewModelFactory : TopRatedViewModelFactory by instance()
 
     private lateinit var viewModel: TopRatedViewModel
 
@@ -39,7 +39,7 @@ class TopRated : ScopeFragment(), KodeinAware {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(TopRatedViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(TopRatedViewModel::class.java)
         viewModel.bindUI()
 
         viewModel.titleMovieTopRated.observe(this, Observer { value ->

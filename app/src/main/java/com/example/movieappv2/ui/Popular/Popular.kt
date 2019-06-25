@@ -14,11 +14,11 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
 
-class Popular : ScopeFragment(), KodeinAware {
-
-    override val kodein by closestKodein()
-
-    private val viewModelFactory: PopularViewModelFactory by instance()
+class Popular : ScopeFragment() {
+//
+//    override val kodein by closestKodein()
+//
+//    private val viewModelFactory: PopularViewModelFactory by instance()
 
     private lateinit var viewModel: PopularViewModel
 
@@ -33,7 +33,7 @@ class Popular : ScopeFragment(), KodeinAware {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PopularViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(PopularViewModel::class.java)
 
         viewModel.bindUI()
 

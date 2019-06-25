@@ -12,7 +12,7 @@ class TopRatedViewModelFactory @Inject constructor(
     private val movieRepository: MovieRepository
 ) : ViewModelProvider.Factory {
 
-    @Provides
+//    @Provides
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return TopRatedViewModel(movieRepository) as T
