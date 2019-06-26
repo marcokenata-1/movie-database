@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.movieappv2.data.repository.MovieRepositoryImpl
 import dagger.Module
 import javax.inject.Inject
+import javax.inject.Singleton
 
 @Module
 class PopularViewModelFactory @Inject constructor(

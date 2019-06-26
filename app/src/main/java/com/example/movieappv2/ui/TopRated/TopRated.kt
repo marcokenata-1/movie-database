@@ -7,12 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import com.example.movieappv2.MyApplication
+import com.example.movieappv2.MyApplication_MembersInjector
 
 import com.example.movieappv2.R
+import com.example.movieappv2.di.DaggerAppComponent
 import com.example.movieappv2.ui.Popular.PopularViewModel
 import com.example.movieappv2.ui.Popular.PopularViewModelFactory
 import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.base.ScopeFragment
+import dagger.android.DaggerActivity
 import kotlinx.android.synthetic.main.top_rated_fragment.*
 import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
@@ -25,8 +29,7 @@ class TopRated : ScopeFragment() {
 
 //    override val kodein by closestKodein()
 //
-    @Inject
-    internal lateinit var viewModelFactory : TopRatedViewModelFactory
+    @Inject lateinit var viewModelFactory : TopRatedViewModelFactory
 
     private lateinit var viewModel: TopRatedViewModel
 
@@ -40,8 +43,11 @@ class TopRated : ScopeFragment() {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+
+
+
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TopRatedViewModel::class.java)
+        viewModel = ViewModelProviders.of(this,viewModelFactory).get(TopRatedViewModel::class.java)
         viewModel.bindUI()
 
         viewModel.titleMovieTopRated.observe(this, Observer { value ->

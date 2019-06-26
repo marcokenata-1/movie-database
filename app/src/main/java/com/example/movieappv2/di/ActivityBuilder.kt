@@ -10,8 +10,8 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBuilder() {
     @ContributesAndroidInjector(modules = arrayOf(PopularViewModelFactory::class))
-    abstract fun bindPopular(): Popular
+    abstract fun Popular(): Popular
 
     @ContributesAndroidInjector(modules = arrayOf(TopRatedViewModelFactory::class))
-    abstract fun bindTopRated() : TopRated
+    abstract fun TopRated() : TopRated
 }

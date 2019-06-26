@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.movieappv2.MyApplication
 import com.example.movieappv2.R
+import com.example.movieappv2.di.ActivityBuilder
 import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.base.ScopeFragment
 import kotlinx.android.synthetic.main.popular_fragment.*
@@ -35,6 +37,7 @@ class Popular : ScopeFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(PopularViewModel::class.java)
 
         viewModel.bindUI()
