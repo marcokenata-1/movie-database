@@ -1,28 +1,32 @@
 package com.example.movieappv2.data.repository
 
 import androidx.lifecycle.LiveData
-import com.example.movieappv2.data.network.MovieDataSource
+import com.example.movieappv2.data.network.MovieDataSourceImpl
 import com.example.movieappv2.data.network.response.DataResponse
+import dagger.Module
+import dagger.Provides
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
+@Module
 class MovieRepositoryImpl @Inject constructor(
-    private val movieDataSource: MovieDataSource
-) : MovieRepository {
-    override suspend fun fetchPopularMoviesRepo(page: Int): LiveData<DataResponse> {
+    private val movieDataSourceImpl: MovieDataSourceImpl
+) {
+
+    @Provides
+    suspend fun fetchPopularMoviesRepo(page: Int): LiveData<DataResponse> {
         return withContext(Dispatchers.IO){
-            movieDataSource.fetchPopularMovies(page)
-            return@withContext movieDataSource.popularMovies
+            movieDataSourceImpl.fetchPopularMovies(page)
+            return@withContext movieDataSourceImpl.popularMovies
         }
     }
 
-    override suspend fun fetchTopRatedMoviesRepo(page: Int): LiveData<DataResponse> {
+    @Provides
+    suspend fun fetchTopRatedMoviesRepo(page: Int): LiveData<DataResponse> {
         return withContext(Dispatchers.IO){
-            movieDataSource.fetchTopRatedMovies(page)
-            return@withContext movieDataSource.topRatedMovies
+            movieDataSourceImpl.fetchTopRatedMovies(page)
+            return@withContext movieDataSourceImpl.topRatedMovies
         }
     }
 }

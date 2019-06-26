@@ -3,12 +3,12 @@ package com.example.movieappv2.ui.Popular
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.movieappv2.data.network.response.DataResponse
-import com.example.movieappv2.data.repository.MovieRepository
+import com.example.movieappv2.data.repository.MovieRepositoryImpl
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 class PopularViewModel(
-    private val movieRepository: MovieRepository
+    private val movieRepositoryImpl: MovieRepositoryImpl
 ) : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext
@@ -25,7 +25,7 @@ class PopularViewModel(
 
 
     fun bindUI() = launch {
-        titleMovie.postValue(movieRepository.fetchPopularMoviesRepo(1).value)
+        titleMovie.postValue(movieRepositoryImpl.fetchPopularMoviesRepo(1).value)
     }
 
 }

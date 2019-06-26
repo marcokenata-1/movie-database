@@ -5,20 +5,25 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.movieappv2.data.network.response.DataResponse
 import com.example.movieappv2.internal.NoConnectivityException
+import dagger.Module
+import dagger.Provides
 import javax.inject.Inject
 
-
-class MovieDataSourceImpl @Inject constructor(private val theMovieDBService: TheMovieDBService) : MovieDataSource {
+@Module
+class MovieDataSourceImpl @Inject constructor(private val theMovieDBService: TheMovieDBService) {
 
     private val _popularMovies = MutableLiveData<DataResponse>()
-    override val popularMovies: LiveData<DataResponse>
+
+    val popularMovies: LiveData<DataResponse>
         get() = _popularMovies
 
     private val _topRatedMovies = MutableLiveData<DataResponse>()
-    override val topRatedMovies: LiveData<DataResponse>
+
+    val topRatedMovies: LiveData<DataResponse>
         get() = _topRatedMovies
 
-    override suspend fun fetchPopularMovies(page: Int) {
+    @Provides
+    suspend fun fetchPopularMovies(page: Int) {
         try {
             val fetchedMovieDBService = theMovieDBService
                 .getPopular("en-US",page,"B1")
@@ -31,7 +36,8 @@ class MovieDataSourceImpl @Inject constructor(private val theMovieDBService: The
         }
     }
 
-    override suspend fun fetchTopRatedMovies(page: Int) {
+    @Provides
+    suspend fun fetchTopRatedMovies(page: Int) {
         try {
             val fetchedMovieDBService = theMovieDBService
                 .getTopRated("en-US",page,"B1")

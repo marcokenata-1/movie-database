@@ -3,13 +3,12 @@ package com.example.movieappv2.ui.TopRated
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.movieappv2.data.network.response.DataResponse
-import com.example.movieappv2.data.repository.MovieRepository
-import com.example.movieappv2.internal.lazyDeferred
+import com.example.movieappv2.data.repository.MovieRepositoryImpl
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 class TopRatedViewModel(
-    private val movieRepository: MovieRepository
+    private val movieRepositoryImpl: MovieRepositoryImpl
 ) : ViewModel(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext
@@ -25,6 +24,6 @@ class TopRatedViewModel(
 
 
     fun bindUI() = launch {
-        titleMovieTopRated.postValue(movieRepository.fetchTopRatedMoviesRepo(1).value)
+        titleMovieTopRated.postValue(movieRepositoryImpl.fetchTopRatedMoviesRepo(1).value)
     }
 }
