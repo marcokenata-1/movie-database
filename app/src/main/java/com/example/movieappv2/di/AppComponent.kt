@@ -10,7 +10,7 @@ import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(AndroidInjectionModule::class,ActivityBuilder::class,MovieRepositoryImpl::class))
+@Component(modules = arrayOf(AndroidInjectionModule::class,ActivityBuilder::class,MovieRepositoryImpl::class,NetModule::class))
 interface AppComponent : AndroidInjector<MyApplication>{
 
     @Component.Builder

@@ -27,37 +27,37 @@ interface TheMovieDBService {
                     @Query("page") page : Int,
                     @Query("region") region : String = "B1") : Deferred<DataResponse>
 
-    companion object {
-        operator fun invoke ( connectivityInterceptor: ConnectivityInterceptor): TheMovieDBService {
-            val requestInterceptor = Interceptor {chain ->
-
-                val url = chain.request()
-                    .url()
-                    .newBuilder()
-                    .addQueryParameter("api_key", API_KEY)
-                    .build()
-
-                val request = chain.request()
-                    .newBuilder()
-                    .url(url)
-                    .build()
-
-                return@Interceptor chain.proceed(request)
-
-            }
-
-            val okHttpClient = OkHttpClient.Builder()
-                .addInterceptor(requestInterceptor)
-                .addInterceptor(connectivityInterceptor)
-                .build()
-
-            return Retrofit.Builder()
-                .client(okHttpClient)
-                .baseUrl("https://api.themoviedb.org/3/movie/")
-                .addCallAdapterFactory(CoroutineCallAdapterFactory())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(TheMovieDBService::class.java)
-        }
-    }
+//    companion object {
+//        operator fun invoke ( connectivityInterceptorImpl: ConnectivityInterceptorImpl): TheMovieDBService {
+//            val requestInterceptor = Interceptor {chain ->
+//
+//                val url = chain.request()
+//                    .url()
+//                    .newBuilder()
+//                    .addQueryParameter("api_key", API_KEY)
+//                    .build()
+//
+//                val request = chain.request()
+//                    .newBuilder()
+//                    .url(url)
+//                    .build()
+//
+//                return@Interceptor chain.proceed(request)
+//
+//            }
+//
+//            val okHttpClient = OkHttpClient.Builder()
+//                .addInterceptor(requestInterceptor)
+//                .addInterceptor(connectivityInterceptorImpl)
+//                .build()
+//
+//            return Retrofit.Builder()
+//                .client(okHttpClient)
+//                .baseUrl("https://api.themoviedb.org/3/movie/")
+//                .addCallAdapterFactory(CoroutineCallAdapterFactory())
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build()
+//                .create(TheMovieDBService::class.java)
+//        }
+//    }
 }
