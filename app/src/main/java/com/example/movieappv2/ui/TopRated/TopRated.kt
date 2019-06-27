@@ -45,8 +45,6 @@ class TopRated : ScopeFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
-
-
         super.onActivityCreated(savedInstanceState)
         AndroidSupportInjection.inject(this)
 
@@ -58,22 +56,6 @@ class TopRated : ScopeFragment() {
             gvTopRatedFragment.adapter = adapter
         })
 
-//        bindUI()
     }
-//
-//    fun bindUI() = launch {
-//        val movie = viewModel.movieTopRated.await()
-//
-//        movie.observe(this@TopRated, Observer {
-//            if (it == null) return@Observer
-//
-//            updateText(it.toString())
-//        })
-//
-//    }
-//
-//    fun updateText(text : String){
-//        tv_topRated.text = text
-//    }
 
 }

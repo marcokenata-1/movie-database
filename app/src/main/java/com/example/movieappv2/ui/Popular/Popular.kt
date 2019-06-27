@@ -28,8 +28,6 @@ class Popular : ScopeFragment() {
 
     var adapter: FragmentAdapter? = null
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,7 +42,6 @@ class Popular : ScopeFragment() {
         viewModel.bindUI()
 
         viewModel.titleMovie.observe(this, Observer { value ->
-//            Log.d("VALUE",value.totalPages.toString())
             adapter = FragmentAdapter(context,value.results)
             gvTopRatedFragment.adapter = adapter
         })

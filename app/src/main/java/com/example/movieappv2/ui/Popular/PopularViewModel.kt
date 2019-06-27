@@ -19,10 +19,7 @@ class PopularViewModel(
         coroutineContext.cancel()
     }
 
-
-
     val titleMovie = MutableLiveData<DataResponse>()
-
 
     fun bindUI() = launch {
         titleMovie.postValue(movieRepositoryImpl.fetchPopularMoviesRepo(1).value)

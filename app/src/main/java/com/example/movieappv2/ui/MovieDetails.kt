@@ -1,17 +1,21 @@
 package com.example.movieappv2.ui
 
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.example.movieappv2.R
+import com.example.movieappv2.databinding.MovieDetailsBinding
 import kotlinx.android.synthetic.main.movie_details.*
 
 class MovieDetails : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.movie_details)
+
+        val binding : MovieDetailsBinding = DataBindingUtil.setContentView(this,R.layout.movie_details)
+        
 
         val bundle = intent.extras!!
         var url = "https://image.tmdb.org/t/p/w500"
