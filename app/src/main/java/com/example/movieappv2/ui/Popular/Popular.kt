@@ -1,20 +1,18 @@
 package com.example.movieappv2.ui.Popular
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.movieappv2.MyApplication
 import com.example.movieappv2.R
-import com.example.movieappv2.di.ActivityBuilder
 import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.base.ScopeFragment
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.popular_fragment.*
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.closestKodein
-import org.kodein.di.generic.instance
 import javax.inject.Inject
 
 class Popular : ScopeFragment() {
@@ -37,14 +35,12 @@ class Popular : ScopeFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(PopularViewModel::class.java)
-
         viewModel.bindUI()
 
         viewModel.titleMovie.observe(this, Observer { value ->
 //            Log.d("VALUE",value.totalPages.toString())
-            adapter = FragmentAdapter(this@Popular.context,value.results)
+            adapter = FragmentAdapter(context,value.results)
             gvTopRatedFragment.adapter = adapter
         })
 

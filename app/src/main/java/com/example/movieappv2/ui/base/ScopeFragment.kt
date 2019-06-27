@@ -2,6 +2,7 @@ package com.example.movieappv2.ui.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import dagger.android.AndroidInjection
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -24,4 +25,5 @@ abstract class ScopeFragment : Fragment() , CoroutineScope {
         super.onDestroy()
         job.cancel()
     }
+
 }

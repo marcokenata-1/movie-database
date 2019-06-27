@@ -12,7 +12,7 @@ import dagger.android.AndroidInjector
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(AndroidInjectionModule::class,ActivityBuilder::class,MovieRepositoryImpl::class,NetModule::class))
+@Component(modules = arrayOf(AndroidInjectionModule::class,FragmentModule::class,MovieRepositoryImpl::class,NetModule::class, ViewModelModule::class, ActivityModule::class))
 interface AppComponent : AndroidInjector<MyApplication>{
 
     @Component.Builder
@@ -23,7 +23,4 @@ interface AppComponent : AndroidInjector<MyApplication>{
         fun build(): AppComponent
     }
 
-    fun inject(popular: Popular)
-
-    fun inject(topRated: TopRated)
 }
