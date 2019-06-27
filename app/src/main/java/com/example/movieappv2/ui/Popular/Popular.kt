@@ -12,6 +12,8 @@ import com.example.movieappv2.R
 import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.base.ScopeFragment
 import dagger.android.AndroidInjection
+import dagger.android.AndroidInjectionModule
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.popular_fragment.*
 import javax.inject.Inject
 
@@ -26,6 +28,8 @@ class Popular : ScopeFragment() {
 
     var adapter: FragmentAdapter? = null
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,6 +39,7 @@ class Popular : ScopeFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        AndroidSupportInjection.inject(this)
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(PopularViewModel::class.java)
         viewModel.bindUI()
 

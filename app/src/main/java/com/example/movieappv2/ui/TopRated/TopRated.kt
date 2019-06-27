@@ -17,6 +17,7 @@ import com.example.movieappv2.ui.Popular.PopularViewModelFactory
 import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.base.ScopeFragment
 import dagger.android.DaggerActivity
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.top_rated_fragment.*
 import kotlinx.coroutines.launch
 import org.kodein.di.KodeinAware
@@ -47,6 +48,8 @@ class TopRated : ScopeFragment() {
 
 
         super.onActivityCreated(savedInstanceState)
+        AndroidSupportInjection.inject(this)
+
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(TopRatedViewModel::class.java)
         viewModel.bindUI()
 
