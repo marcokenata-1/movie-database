@@ -12,9 +12,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 import javax.inject.Inject
 
-const val API_KEY = "ddeb2407d89eb56ea96d59636397646a"
-
-
 interface TheMovieDBService {
 
     @GET("popular?")

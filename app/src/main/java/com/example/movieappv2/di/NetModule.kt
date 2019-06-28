@@ -1,6 +1,8 @@
 package com.example.movieappv2.di
 
+import com.example.movieappv2.data.network.API_KEY
 import com.example.movieappv2.data.network.TheMovieDBService
+import com.example.movieappv2.data.network.baseUrl
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -10,8 +12,7 @@ import retrofit2.Retrofit.Builder
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-const val API_KEY = "ddeb2407d89eb56ea96d59636397646a"
-const val baseUrl = "https://api.themoviedb.org/3/movie/"
+
 
 @Module
 class NetModule() {
