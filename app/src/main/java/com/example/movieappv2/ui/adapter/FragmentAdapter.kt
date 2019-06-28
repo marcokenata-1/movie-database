@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import androidx.databinding.DataBindingUtil
 import com.example.movieappv2.R
 import com.example.movieappv2.data.network.response.Result
+import com.example.movieappv2.data.network.response.ResultTicket
+import com.example.movieappv2.databinding.MovieTicketBinding
 import com.example.movieappv2.internal.glide.GlideApp
 import com.example.movieappv2.ui.MovieDetails
 import kotlinx.android.synthetic.main.movie_ticket.view.*
@@ -25,19 +28,11 @@ class FragmentAdapter : BaseAdapter {
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         var movie = listOfMovies[p0]
         var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        var movieView = inflator.inflate(R.layout.movie_ticket,null)
+        val binding : MovieTicketBinding = DataBindingUtil.inflate(inflator,R.layout.movie_ticket,null,false)
 
-        var url = "https://image.tmdb.org/t/p/w500" + movie.posterPath
+        binding.result = ResultTicket(movie.posterPath,movie.originalTitle,genreMatcher(movie.genreIds))
 
-        movieView.tvMovieName.text = movie.originalTitle
-
-        movieView.tvGenreName.text = genreMatcher(movie.genreIds)
-
-        GlideApp.with(context!!)
-            .load(url)
-            .into(movieView.ivMovieImage)
-
-        movieView.setOnClickListener {
+        binding.root.setOnClickListener {
             val intent = Intent(context, MovieDetails::class.java)
             intent.putExtra("genre_id",movie.genreIds)
             intent.putExtra("title",movie.title)
@@ -52,7 +47,7 @@ class FragmentAdapter : BaseAdapter {
             context!!.startActivity(intent)
         }
 
-        return movieView
+        return binding.root
     }
 
     override fun getItem(p0: Int): Any {
