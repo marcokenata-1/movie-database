@@ -39,6 +39,8 @@ class FragmentAdapter : BaseAdapter {
 
         movieView.setOnClickListener {
             val intent = Intent(context, MovieDetails::class.java)
+            intent.putExtra("genre_id",movie.genreIds)
+            intent.putExtra("title",movie.title)
             intent.putExtra("poster_path",movie.posterPath)
             intent.putExtra("backdrop_path",movie.backdropPath)
             intent.putExtra("original_title",movie.originalTitle)

@@ -2,12 +2,10 @@ package com.example.movieappv2.data.network.response
 
 import com.google.gson.annotations.SerializedName
 
-data class Result(
+data class ResultDetails(
 //    val adult: Boolean,
-    @SerializedName("backdrop_path")
-    val backdropPath: String,
-    @SerializedName("genre_ids")
-    val genreIds: ArrayList<Int>,
+//    @SerializedName("backdrop_path")
+//    val backdropPath: String,
 //    val id: Int,
     @SerializedName("original_language")
     val originalLanguage: String,
@@ -15,8 +13,8 @@ data class Result(
     val originalTitle: String,
     val overview: String,
 //    val popularity: Double,
-    @SerializedName("poster_path")
-    val posterPath: String,
+//    @SerializedName("poster_path")
+//    val posterPath: String,
     @SerializedName("release_date")
     val releaseDate: String,
     val title: String,

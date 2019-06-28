@@ -4,7 +4,7 @@
 
     <data>
         <variable name="details"
-                  type="com.example.movieappv2.data.network.response.Result"/>
+                  type="com.example.movieappv2.data.network.response.ResultDetails"/>
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -24,7 +24,7 @@
                 android:layout_height="243dp" app:srcCompat="@drawable/sample_image" android:id="@+id/ivMoviePoster"/>
 
         <TextView
-                android:text="@{details.originalTitle}"
+                android:text='@{details.originalTitle+" ("+details.title+")"}'
                 android:layout_marginLeft="200dp"
                 android:layout_marginTop="-180dp"
                 android:layout_width="168dp"
@@ -48,7 +48,7 @@
 
 
         <TextView
-                android:text='@{""+details.voteCount}'
+                android:text='@{""+details.voteCount+" votes"}'
                 android:layout_marginLeft="205dp"
                 android:layout_marginTop="10dp"
                 android:layout_width="168dp"
@@ -95,7 +95,7 @@
                 android:textStyle="bold" android:layout_marginTop="30dp" android:padding="5dp" android:textSize="20dp"/>
 
         <TextView
-                android:text="@{details.description}"
+                android:text="@{details.overview}"
                 android:layout_width="match_parent"
                 android:layout_height="157dp" android:id="@+id/tvDescription"
                 android:padding="20dp"
