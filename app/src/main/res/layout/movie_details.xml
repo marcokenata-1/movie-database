@@ -15,12 +15,14 @@
 
         <ImageView
                 android:layout_width="wrap_content"
+                app:backdropImage="@{details.backdropPath}"
                 android:layout_height="231dp" app:srcCompat="@drawable/sample_backdrop" android:id="@+id/ivBackdrop"/>
 
         <ImageView
                 android:layout_width="162dp"
                 android:layout_marginTop="-50dp"
                 android:layout_marginLeft="15dp"
+                app:posterImage="@{details.posterPath}"
                 android:layout_height="243dp" app:srcCompat="@drawable/sample_image" android:id="@+id/ivMoviePoster"/>
 
         <TextView

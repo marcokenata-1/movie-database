@@ -22,23 +22,15 @@ class MovieDetails : AppCompatActivity() {
 
         val bundle = intent.extras!!
 
-
-
         binding.details = ResultDetails(
+            ""+bundle.getString("backdrop_path"),
             ""+bundle.getString("original_language"),
             ""+bundle.getString("original_title"),
             ""+bundle.getString("overview"),
+            ""+bundle.getString("poster_path"),
             ""+bundle.getString("release_date"),
             ""+bundle.getString("title"),
-        bundle.getDouble("vote_average"),
+            bundle.getDouble("vote_average"),
             bundle.getInt("vote_count"))
-
-        Glide.with(this)
-            .load(imgUrl+bundle.getString("poster_path"))
-            .into(ivMoviePoster)
-
-        Glide.with(this)
-            .load(urlBackdrop+bundle.getString("backdrop_path"))
-            .into(ivBackdrop)
     }
 }
