@@ -4,7 +4,6 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.movieappv2.data.network.imgUrl
-import java.util.*
 
 data class ResultTicket (
     val posterPath : String,
@@ -12,7 +11,7 @@ data class ResultTicket (
     val genre : String
 )
 
-class binder1 {
+class Binder1 {
     companion object {
         @BindingAdapter("posterImageTicket")
         @JvmStatic

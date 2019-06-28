@@ -30,7 +30,7 @@ data class ResultDetails(
     val voteCount: Int
 )
 
-class binder {
+class Binder {
     companion object {
         @BindingAdapter("backdropImage")
         @JvmStatic

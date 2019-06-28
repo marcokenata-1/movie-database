@@ -11,9 +11,7 @@ import com.example.movieappv2.R
 import com.example.movieappv2.data.network.response.Result
 import com.example.movieappv2.data.network.response.ResultTicket
 import com.example.movieappv2.databinding.MovieTicketBinding
-import com.example.movieappv2.internal.glide.GlideApp
 import com.example.movieappv2.ui.MovieDetails
-import kotlinx.android.synthetic.main.movie_ticket.view.*
 
 class FragmentAdapter : BaseAdapter {
 
