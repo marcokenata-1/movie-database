@@ -10,4 +10,9 @@
             android:icon="@drawable/ic_rate_review_black_24dp"
             android:title="Top Rated"
     />
+    <item
+            android:id="@+id/testAutoResize"
+            android:icon="@drawable/ic_select_all_black_24dp"
+            android:title="Test Auto Resize"
+        />
 </menu>

@@ -1,6 +1,7 @@
 package com.example.movieappv2.di
 
 import com.example.movieappv2.ui.Popular.Popular
+import com.example.movieappv2.ui.TestAutoResize.TestAutoResize
 import com.example.movieappv2.ui.TopRated.TopRated
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -12,4 +13,7 @@ abstract class FragmentModule() {
 
     @ContributesAndroidInjector
     internal abstract fun TopRated() : TopRated
+
+    @ContributesAndroidInjector
+    internal abstract fun TestAutoResize() : TestAutoResize
 }

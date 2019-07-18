@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.TestAutoResize.TestAutoResize">
+
+
+
+        <ListView
+                android:id="@+id/lvAutoResize"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+    <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeMaxTextSize="30sp"
+            app:autoSizeStepGranularity="2sp"
+            android:layout_alignParentBottom="true"
+            android:layout_height="50dp" android:id="@+id/resizerButton"/>
+</RelativeLayout>

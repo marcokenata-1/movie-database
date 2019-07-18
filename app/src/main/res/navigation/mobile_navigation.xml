@@ -9,4 +9,6 @@
               android:name="com.example.movieappv2.ui.Popular.Popular"/>
     <fragment android:id="@+id/topRatedFragment" android:name="com.example.movieappv2.ui.TopRated.TopRated"
               android:label="Top Rated" tools:layout="@layout/top_rated_fragment"/>
+    <fragment android:id="@+id/testAutoResize" android:name="com.example.movieappv2.ui.TestAutoResize.TestAutoResize"
+              android:label="Test Auto Resize" tools:layout="@layout/test_auto_resize_fragment"/>
 </navigation>

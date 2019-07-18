@@ -1,4 +1,4 @@
-package com.example.movieappv2.ui.Popular
+package com.example.movieappv2.ui.TestAutoResize
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,12 +7,15 @@ import dagger.Module
 import javax.inject.Inject
 
 @Module
-class PopularViewModelFactory @Inject constructor(
+class TestAutoResizeViewModelFactory @Inject constructor(
     private val movieRepositoryImpl: MovieRepositoryImpl
-) : ViewModelProvider.Factory {
+) : ViewModelProvider.Factory{
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return PopularViewModel(movieRepositoryImpl) as T
+        return TestAutoResizeViewModel(movieRepositoryImpl) as T
     }
+
+
+
 }

@@ -2,6 +2,7 @@ package com.example.movieappv2.di
 
 import androidx.lifecycle.ViewModel
 import com.example.movieappv2.ui.Popular.PopularViewModel
+import com.example.movieappv2.ui.TestAutoResize.TestAutoResizeViewModel
 import com.example.movieappv2.ui.TopRated.TopRatedViewModel
 import dagger.Binds
 import dagger.Module
@@ -18,4 +19,9 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(TopRatedViewModel::class)
     abstract fun bindTopRatedViewModel(viewModel: TopRatedViewModel) : ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TestAutoResizeViewModel::class)
+    abstract fun bindTestAutoResizeViewModel(viewModel: TestAutoResizeViewModel) : ViewModel
 }
