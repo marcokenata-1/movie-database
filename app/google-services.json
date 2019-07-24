@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "590525655304",
+    "firebase_url": "https://oceanic-sky-186003.firebaseio.com",
+    "project_id": "oceanic-sky-186003",
+    "storage_bucket": "oceanic-sky-186003.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590525655304:android:d05d721d89a07485",
+        "android_client_info": {
+          "package_name": "com.example.movieappv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "590525655304-0rah42aat7a2t2f7gjdpv0eh9knfe3t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLAd0Oq7ZlmHLyMI9T721AbjkmGwHcbxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590525655304-0rah42aat7a2t2f7gjdpv0eh9knfe3t5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
