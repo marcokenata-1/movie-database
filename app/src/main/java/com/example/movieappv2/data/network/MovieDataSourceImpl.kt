@@ -26,11 +26,10 @@ class MovieDataSourceImpl @Inject constructor(private val theMovieDBService: The
     suspend fun fetchPopularMovies(page: Int) {
         try {
             val fetchedMovieDBService = theMovieDBService
-                .getPopular("en-US",page,"B1")
+                .getPopular("en-US",page)
                 .await()
 
             _popularMovies.postValue(fetchedMovieDBService)
-
         } catch (e: NoConnectivityException){
             Log.e("Connectivity","No Internet Connection")
         }
@@ -40,11 +39,10 @@ class MovieDataSourceImpl @Inject constructor(private val theMovieDBService: The
     suspend fun fetchTopRatedMovies(page: Int) {
         try {
             val fetchedMovieDBService = theMovieDBService
-                .getTopRated("en-US",page,"B1")
+                .getTopRated("en-US",page)
                 .await()
 
             _topRatedMovies.postValue(fetchedMovieDBService)
-
         } catch (e: NoConnectivityException){
             Log.e("Connectivity","No Internet Connection")
         }

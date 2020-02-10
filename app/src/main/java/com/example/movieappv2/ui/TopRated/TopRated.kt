@@ -1,28 +1,16 @@
 package com.example.movieappv2.ui.TopRated
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.example.movieappv2.MyApplication
-import com.example.movieappv2.MyApplication_MembersInjector
-
+import androidx.lifecycle.ViewModelProviders
 import com.example.movieappv2.R
-import com.example.movieappv2.di.DaggerAppComponent
-import com.example.movieappv2.ui.Popular.PopularViewModel
-import com.example.movieappv2.ui.Popular.PopularViewModelFactory
 import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.base.ScopeFragment
-import dagger.android.DaggerActivity
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.top_rated_fragment.*
-import kotlinx.coroutines.launch
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.closestKodein
-import org.kodein.di.generic.instance
 import javax.inject.Inject
 
 class TopRated : ScopeFragment() {

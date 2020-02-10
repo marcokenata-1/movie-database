@@ -16,13 +16,11 @@ interface TheMovieDBService {
 
     @GET("popular?")
     fun getPopular(@Query("language") language : String = "en-US",
-                   @Query("page") page : Int,
-                   @Query("region") region : String = "B1") : Deferred<DataResponse>
+                   @Query("page") page : Int) : Deferred<DataResponse>
 
     @GET("top_rated?")
     fun getTopRated(@Query("language") language : String = "en-US",
-                    @Query("page") page : Int,
-                    @Query("region") region : String = "B1") : Deferred<DataResponse>
+                    @Query("page") page : Int) : Deferred<DataResponse>
 
 //    companion object {
 //        operator fun invoke ( connectivityInterceptorImpl: ConnectivityInterceptorImpl): TheMovieDBService {

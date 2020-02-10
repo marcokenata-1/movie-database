@@ -13,9 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 
-
 @Module
-class NetModule() {
+class NetModule {
 
     val requestInterceptor = Interceptor {chain ->
 
