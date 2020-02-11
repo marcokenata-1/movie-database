@@ -9,6 +9,4 @@ Feature: Home Screen
   @smoke
   Scenario: Clicking on the image position
     Given I am on the home screen
-    And I see all my recyclerview loads
-    When I tap on an item on the recyclerview
-    Then It will move into the details page
+    Then  I tap on an item on the gridview and move into another page

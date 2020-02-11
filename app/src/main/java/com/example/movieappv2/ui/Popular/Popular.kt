@@ -39,7 +39,7 @@ class Popular : ScopeFragment() {
 
         viewModel.titleMovie.observe(this, Observer { value ->
             adapter = FragmentAdapter(context,value.results)
-            gvTopRatedFragment.adapter = adapter
+            gvPopularFragment.adapter = adapter
         })
 
     }

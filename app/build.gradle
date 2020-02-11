@@ -17,10 +17,15 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner getInstrumentation()
         multiDexEnabled true
     }
     buildTypes {
+        debug {
+            buildConfigField 'String', 'TEST_TAGS', '"' + getTestTags() + '"'
+            buildConfigField 'String', 'TEST_SCENARIO', '"' + getTestScenario() + '"'
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -30,6 +35,18 @@ android {
     dataBinding {
         enabled = true
     }
+}
+
+def getTestTags() {
+    project.getProperties().get('tags') ?: ''
+}
+
+def getTestScenario() {
+    project.getProperties().get('scenario') ?: ''
+}
+
+def getInstrumentation() {
+    project.hasProperty('cucumber') ? 'test.java.com.sniper.movieappv2.cucumber.runner.CucumberTestRunner' : 'android.support.test.runner.AndroidJUnitRunner'
 }
 
 dependencies {
@@ -44,7 +61,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
 
     //navigation libraries
     implementation "androidx.navigation:navigation-fragment:$nav_version"
