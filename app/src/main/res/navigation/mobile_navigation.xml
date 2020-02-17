@@ -6,9 +6,9 @@
 
     <fragment android:id="@+id/popularFragment"
               android:label="Popular" tools:layout="@layout/popular_fragment"
-              android:name="com.example.movieappv2.ui.Popular.Popular"/>
-    <fragment android:id="@+id/topRatedFragment" android:name="com.example.movieappv2.ui.TopRated.TopRated"
+              android:name="com.com.example.com.example.movieappv2.ui.Popular.Popular"/>
+    <fragment android:id="@+id/topRatedFragment" android:name="com.com.example.com.example.movieappv2.ui.TopRated.TopRated"
               android:label="Top Rated" tools:layout="@layout/top_rated_fragment"/>
-    <fragment android:id="@+id/testAutoResize" android:name="com.example.movieappv2.ui.TestAutoResize.TestAutoResize"
+    <fragment android:id="@+id/testAutoResize" android:name="com.com.example.com.example.movieappv2.ui.TestAutoResize.TestAutoResize"
               android:label="Test Auto Resize" tools:layout="@layout/test_auto_resize_fragment"/>
 </navigation>

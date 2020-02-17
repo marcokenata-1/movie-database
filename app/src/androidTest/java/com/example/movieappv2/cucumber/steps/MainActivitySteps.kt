@@ -1,16 +1,29 @@
-package com.example.movieappv2.java.com.example.movieappv2.cucumber.steps
+package com.example.movieappv2.cucumber.steps
 
 import androidx.test.rule.ActivityTestRule
-import com.example.movieappv2.java.com.example.movieappv2.cucumber.espresso.mainactivity.MainActivityRobot
+import com.example.movieappv2.cucumber.espresso.mainactivity.MainActivityRobot
 import com.example.movieappv2.ui.MainActivity
+import com.example.movieappv2.utils.ActivityFinisher
+import cucumber.api.java.Before
 import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
+import org.junit.After
 
 class MainActivitySteps {
 
     private val robot = MainActivityRobot()
 
     private val activityRule = ActivityTestRule(MainActivity::class.java, false, false)
+
+    @Before
+    fun setUp() {
+        //later
+    }
+
+    @After
+    fun tearDown(){
+        ActivityFinisher.finishOpenActivities()
+    }
 
     @Given("^I am on the home screen$")
     fun i_am_on_the_home_screen() {

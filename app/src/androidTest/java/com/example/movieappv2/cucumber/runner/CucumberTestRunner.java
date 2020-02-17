@@ -1,11 +1,11 @@
-package com.example.movieappv2.java.com.example.movieappv2.cucumber.runner;
+package com.example.movieappv2.cucumber.runner;
 
 
 import android.os.Bundle;
 
 import androidx.test.runner.AndroidJUnitRunner;
 
-import com.example.movieappv2.BuildConfig;
+import com.example.movieappv2.test.BuildConfig;
 
 import cucumber.api.android.CucumberInstrumentationCore;
 
