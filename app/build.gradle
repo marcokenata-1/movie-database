@@ -17,7 +17,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner 'com.example.movieappv2.cucumber.runner.CucumberTestRunner'
+        testInstrumentationRunner getInstrumentation(project)
         multiDexEnabled true
     }
     buildTypes {

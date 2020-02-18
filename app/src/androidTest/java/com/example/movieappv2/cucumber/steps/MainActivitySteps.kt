@@ -5,6 +5,7 @@ import com.example.movieappv2.cucumber.espresso.mainactivity.MainActivityRobot
 import com.example.movieappv2.ui.MainActivity
 import com.example.movieappv2.utils.ActivityFinisher
 import cucumber.api.java.Before
+import cucumber.api.java.en.And
 import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
 import org.junit.After
@@ -13,7 +14,7 @@ class MainActivitySteps {
 
     private val robot = MainActivityRobot()
 
-    private val activityRule = ActivityTestRule(MainActivity::class.java, false, false)
+    private val activityRule = ActivityTestRule(MainActivity::class.java)
 
     @Before
     fun setUp() {
@@ -28,6 +29,7 @@ class MainActivitySteps {
     @Given("^I am on the home screen$")
     fun i_am_on_the_home_screen() {
         robot.launchMainActitvity(activityRule)
+        Thread.sleep(1000)
     }
 
     @Then("^I see my navigation button and load all of the data$")
@@ -38,6 +40,17 @@ class MainActivitySteps {
     @Then("^I tap on an item on the gridview and move into another page$")
     fun item_tapper() {
         robot.selectPopularGridViewElement()
+    }
+
+    @Then("^I move to Top Rated Page$")
+    fun nav_tapper(){
+        robot.checkBottomNavigationView()
+    }
+
+    @And("^I tap on the instance in Top Rated View$")
+    fun top_rated_tapper(){
+        Thread.sleep(2000)
+        robot.selectTopRatedGridViewElement()
     }
 
 }

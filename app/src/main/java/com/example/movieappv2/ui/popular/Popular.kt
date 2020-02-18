@@ -1,4 +1,4 @@
-package com.example.movieappv2.ui.Popular
+package com.example.movieappv2.ui.popular
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,9 +1,9 @@
 package com.example.movieappv2.di
 
 import androidx.lifecycle.ViewModel
-import com.example.movieappv2.ui.Popular.PopularViewModel
-import com.example.movieappv2.ui.TestAutoResize.TestAutoResizeViewModel
-import com.example.movieappv2.ui.TopRated.TopRatedViewModel
+import com.example.movieappv2.ui.popular.PopularViewModel
+import com.example.movieappv2.ui.testautoresize.TestAutoResizeViewModel
+import com.example.movieappv2.ui.toprated.TopRatedViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

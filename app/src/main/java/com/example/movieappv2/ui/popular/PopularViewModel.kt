@@ -1,13 +1,13 @@
-package com.example.movieappv2.ui.TestAutoResize
+package com.example.movieappv2.ui.popular
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel
 import com.example.movieappv2.data.network.response.DataResponse
 import com.example.movieappv2.data.repository.MovieRepositoryImpl
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class TestAutoResizeViewModel(
+class PopularViewModel(
     private val movieRepositoryImpl: MovieRepositoryImpl
 ) : ViewModel(), CoroutineScope {
 
@@ -24,4 +24,5 @@ class TestAutoResizeViewModel(
     fun bindUI() = launch {
         titleMovie.postValue(movieRepositoryImpl.fetchPopularMoviesRepo(1).value)
     }
+
 }

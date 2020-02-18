@@ -1,4 +1,4 @@
-package com.example.movieappv2.ui.TestAutoResize
+package com.example.movieappv2.ui.testautoresize
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.movieappv2.R
-import com.example.movieappv2.ui.adapter.FragmentAdapter
 import com.example.movieappv2.ui.adapter.ResizeAdapter
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.test_auto_resize_fragment.*

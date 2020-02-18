@@ -1,8 +1,8 @@
 package com.example.movieappv2.di
 
-import com.example.movieappv2.ui.Popular.Popular
-import com.example.movieappv2.ui.TestAutoResize.TestAutoResize
-import com.example.movieappv2.ui.TopRated.TopRated
+import com.example.movieappv2.ui.popular.Popular
+import com.example.movieappv2.ui.testautoresize.TestAutoResize
+import com.example.movieappv2.ui.toprated.TopRated
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

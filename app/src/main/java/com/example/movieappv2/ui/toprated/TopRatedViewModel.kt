@@ -1,4 +1,4 @@
-package com.example.movieappv2.ui.TopRated
+package com.example.movieappv2.ui.toprated
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

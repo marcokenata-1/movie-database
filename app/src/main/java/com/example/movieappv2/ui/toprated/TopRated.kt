@@ -1,4 +1,4 @@
-package com.example.movieappv2.ui.TopRated
+package com.example.movieappv2.ui.toprated
 
 import android.os.Bundle
 import android.view.LayoutInflater
