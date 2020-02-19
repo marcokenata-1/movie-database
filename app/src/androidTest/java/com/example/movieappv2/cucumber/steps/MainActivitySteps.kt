@@ -10,7 +10,7 @@ import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
 import org.junit.After
 
-class MainActivitySteps {
+class MainActivitySteps : BaseSteps() {
 
     private val robot = MainActivityRobot()
 
@@ -18,7 +18,8 @@ class MainActivitySteps {
 
     @Before
     fun setUp() {
-        //later
+        initMockWebServer()
+        initializeMockWithDispatcher()
     }
 
     @After
