@@ -41,9 +41,6 @@ abstract class BaseSteps {
         }
     }
 
-    /**
-     * Set Dispatcher for MockWebServer
-     */
     protected fun initializeMockWithDispatcher() {
         mockWebServer!!.setDispatcher(initializeDispatcher())
     }
@@ -52,7 +49,6 @@ abstract class BaseSteps {
 
     private fun checkEndpoint(requestPath: String): MockResponse {
         try {
-            Log.d("path123",requestPath)
             when (requestPath) {
                 "/popular?&language=en-US&page=1&api_key=ddeb2407d89eb56ea96d59636397646a" -> return MockResponse().setResponseCode(200)
                     .setBody(setMockResponseBodyInPackage("popular.json"))
@@ -78,19 +74,6 @@ abstract class BaseSteps {
     @Throws(Exception::class)
     private fun setMockResponseBodyInPackage(fileJson: String): String {
         return RestServiceTestHelper.getStringFromFile(instrumentation, "responses/" + fileJson)
-    }
-
-
-    @Throws(Exception::class)
-    protected fun mockResponse(fileJson: String, responseCode: Int) {
-        initMockWebServer()
-        mockWebServer!!.enqueue(
-            MockResponse()
-                .setResponseCode(responseCode)
-                .setBody(RestServiceTestHelper.getStringFromFile(
-                    instrumentation, fileJson)
-                )
-        )
     }
 
 }

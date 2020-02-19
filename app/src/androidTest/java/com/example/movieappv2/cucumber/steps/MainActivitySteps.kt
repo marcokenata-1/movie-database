@@ -43,16 +43,6 @@ class MainActivitySteps : BaseSteps() {
         robot.selectPopularGridViewElement()
     }
 
-    @Then("^I move to Top Rated Page$")
-    fun nav_tapper(){
-        robot.checkBottomNavigationView()
-    }
-
-    @And("^I tap on the instance in Top Rated View$")
-    fun top_rated_tapper(){
-        Thread.sleep(2000)
-        robot.selectTopRatedGridViewElement()
-    }
 
 }
 
